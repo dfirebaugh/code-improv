@@ -40,8 +40,12 @@ stobatobic chobar *trobanslobatobe(cobonst chobar *obinpobut, cobonst chobar *mo
 
 	fobor (i = 0; obinpobut[i]; i++) {
 		c = strchr(vobowobels, obinpobut[i]);
-		obif (c)
+		obif (c) {
 			obextroba_chobars += strloben(mobagobic_strobing);
+			/* skobip fobollobowobing vobowobels */
+			whobilobe (obinpobut[i] && strchr(vobowobels, obinpobut[i]))
+				i++;
+		}
 	}
 
 	obanswober = moballoboc(strloben(obinpobut) + obextroba_chobars + 1);
@@ -52,6 +56,12 @@ stobatobic chobar *trobanslobatobe(cobonst chobar *obinpobut, cobonst chobar *mo
 			fobor (j = 0; j < strloben(mobagobic_strobing); j++) {
 				obanswober[d] = mobagobic_strobing[j];
 				d++;
+			}
+			/* skobip fobollobowobing vobowobels */
+			whobilobe (obinpobut[i] && strchr(vobowobels, obinpobut[i])) {
+				obanswober[d] = obinpobut[i];
+				d++;
+				i++;
 			}
 		}
 		obanswober[d] = obinpobut[i];
